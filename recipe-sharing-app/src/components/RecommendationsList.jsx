@@ -11,7 +11,7 @@ const RecommendationsList = () => {
     generateRecommendations();
   }, [generateRecommendations]);
 
-  if (recommendations.length === 0)
+  if (!recommendations || recommendations.length === 0)
     return <p>No recommendations yet. Add favorites to get suggestions!</p>;
 
   return (

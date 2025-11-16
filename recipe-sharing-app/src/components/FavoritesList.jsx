@@ -1,25 +1,43 @@
 import { useRecipeStore } from "./recipeStore";
+import { useEffect } from "react";
 
-const FavoritesList = () => {
-  const favorites = useRecipeStore((state) =>
-    state.favorites.map((id) => state.recipes.find((recipe) => recipe.id === id))
+const RecommendationsList = () => {
+  const recipes = useRecipeStore((state) => state.recipes || []);
+  const recommendations = useRecipeStore((state) =>
+    state.recommendations || []
   );
-  const removeFavorite = useRecipeStore((state) => state.removeFavorite);
+  const generateRecommendations = useRecipeStore(
+    (state) => state.generateRecommendations
+  );
 
-  if (favorites.length === 0) return <p>No favorites yet!</p>;
+  // Only generate recommendations once on mount
+  useEffect(() => {
+    if (recipes.length > 0) {
+      generateRecommendations();
+    }
+  }, [recipes, generateRecommendations]);
+
+  if (!recommendations || recommendations.length === 0)
+    return <p>No recommendations yet. Add favorites to get suggestions!</p>;
 
   return (
     <div>
-      <h2>My Favorites</h2>
-      {favorites.map((recipe) => (
-        <div key={recipe.id}>
+      <h2>Recommended for You</h2>
+      {recommendations.map((recipe) => (
+        <div
+          key={recipe.id}
+          style={{
+            border: "1px solid #ccc",
+            padding: "8px",
+            margin: "8px 0",
+          }}
+        >
           <h3>{recipe.title}</h3>
           <p>{recipe.description}</p>
-          <button onClick={() => removeFavorite(recipe.id)}>Remove</button>
         </div>
       ))}
     </div>
   );
 };
 
-export default FavoritesList;
+export default RecommendationsList;
