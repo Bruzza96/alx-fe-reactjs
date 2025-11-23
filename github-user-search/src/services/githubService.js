@@ -6,7 +6,7 @@ import axios from "axios";
  * @param {string} location - User location
  * @param {number} minRepos - Minimum number of public repositories
  */
-export const searchUsers = async ({ username = "", location = "", minRepos = 0 }) => {
+export const fetchUserData = async ({ username = "", location = "", minRepos = 0 }) => {
   let query = "";
 
   if (username) query += `${username} in:login`;
