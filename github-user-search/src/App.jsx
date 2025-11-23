@@ -1,9 +1,8 @@
-import SearchUser from "./components/Search";
+import SearchUser from "./components/Search.jsx";
 
 function App() {
   return (
-    <div>
-      <h1>GitHub User Search</h1>
+    <div className="min-h-screen bg-gray-50">
       <SearchUser />
     </div>
   );
