@@ -1,4 +1,4 @@
-import SearchUser from "./components/SearchUser";
+import SearchUser from "./components/Search";
 
 function App() {
   return (
