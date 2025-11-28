@@ -17,7 +17,7 @@ function UserProfile() {
         className="
         rounded-full
         sm:w-24 sm:h-24
-        md:w-36 h-36 
+        md:w-36 md:h-36
         mx-auto
         hover:scale-110 transition-transform duration-300 ease-in-out"
       />
