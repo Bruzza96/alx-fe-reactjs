@@ -1,6 +1,8 @@
 function UserProfile() {
   return (
-    <div className="bg-gray-100 p-8 max-w-sm mx-auto my-20 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ">
+    <div className="mx-auto bg-white shadow-lg rounded-2xl sm:p-4 md:p-8 sm:max-w-xs md:max-w-sm">
+      <div className="flex flex-col items-center text-center">
+        
       <img
         src="https://via.placeholder.com/150"
         alt="User"
@@ -13,6 +15,7 @@ function UserProfile() {
         Developer at Example Co. Loves to write code and explore new technologies.
       </p>
     </div>
+  </div>
   );
 }
 
